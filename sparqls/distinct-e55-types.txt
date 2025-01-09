@@ -1,0 +1,9 @@
+PREFIX cidoc: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?type ?label
+WHERE {
+  ?type a cidoc:E55_Type .
+  OPTIONAL { ?type rdfs:label ?label . }
+}
+ORDER BY ?type
