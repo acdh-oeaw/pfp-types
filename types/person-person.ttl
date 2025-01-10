@@ -1,162 +1,188 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix pfpt: <http://pfp-types.acdh.oeaw.ac.at/#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pfpt: <http://pfp-schema.acdh.oeaw.ac.at/types/person-person/#> .
+
+<http://pfp-schema.acdh.oeaw.ac.at/types/person-person> a owl:Ontology ;
+    dc:title "PFP cidoc:E55_Type definitions for Person Person relations" .
+
 
 # person relations
 
 pfpt:In-relation-to a crm:E55_Type ;
+    a owl:Class ; # needed to be picked up by pylobid
     rdfs:label "in Bezug zu"@de ;
     rdfs:label "in relation to"@en .
 
-pfpt:Friendship rdfs:subClassOf pfpt:In-relation-to ;
+pfpt:Friendship a owl:Class ;
+    rdfs:subClassOf pfpt:In-relation-to ;
     rdfs:label "Freundschaft"@de ;
     rdfs:label "friendship"@en .
 
-pfpt:Intimate-relation rdfs:subClassOf pfpt:In-relation-to ;
+pfpt:Intimate-relation a owl:Class ;
+    rdfs:subClassOf pfpt:In-relation-to ;
     rdfs:label "in intimer Beziehung zu"@de ;
     rdfs:label "in intimate relation to"@en .
 
-pfpt:Hostile-relation rdfs:subClassOf pfpt:In-relation-to ;
+pfpt:Hostile-relation a owl:Class ;
+    rdfs:subClassOf pfpt:In-relation-to ;
     rdfs:label "in feindschaftlicher Beziehung"@de ;
     rdfs:label "in hostile relation"@en .
 
-## familiy relations
+## family relations
 
-pfpt:Family-relation rdfs:subClassOf pfpt:In-relation-to ;
+pfpt:Family-relation a owl:Class ;
+    rdfs:subClassOf pfpt:In-relation-to ;
     rdfs:label "Familienbeziehung"@de ;
     rdfs:label "family relation"@en .
 
-pfpt:Is-engaged-to rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-engaged-to a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist verlobt mit"@de ;
     rdfs:label "is engaged to"@en .
 
-
-pfpt:Is-guardian-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-guardian-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Vormund von"@de ;
     rdfs:label "is guardian of"@en .
 
-### siblings
-
-pfpt:Is-sibling-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-sibling-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Geschwister von"@de ;
-    rdfs:label "is-sibling of"@en .
+    rdfs:label "is sibling of"@en .
 
-pfpt:Is-step-sibling-of rdfs:subClassOf pfpt:Is-sibling-of ;
+pfpt:Is-step-sibling-of a owl:Class ;
+    rdfs:subClassOf pfpt:Is-sibling-of ;
     rdfs:label "ist Stiefgeschwister von"@de ;
     rdfs:label "is step-sibling of"@en .
 
-### child
-
-pfpt:Is-child-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-child-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Kind von"@de ;
     rdfs:label "is child of"@en .
 
-pfpt:Is-biological-child-of rdfs:subClassOf pfpt:Is-child-of ;
+pfpt:Is-biological-child-of a owl:Class ;
+    rdfs:subClassOf pfpt:Is-child-of ;
     rdfs:label "ist biologisches Kind von"@de ;
     rdfs:label "is biological child of"@en .
 
-pfpt:Is-stepchild-of a crm:E55_Type ;
+pfpt:Is-stepchild-of a owl:Class ;
     rdfs:label "ist Stiefkind von"@de ;
     rdfs:label "is stepchild of"@en .
 
-### parent
-
-pfpt:Is-parent-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-parent-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Elternteil von"@de ;
     rdfs:label "is parent of"@en .
 
-pfpt:Is-stepparent-of rdfs:subClassOf pfpt:Is-parent-of ;
+pfpt:Is-stepparent-of a owl:Class ;
+    rdfs:subClassOf pfpt:Is-parent-of ;
     rdfs:label "ist Stiefelternteil von"@de ;
     rdfs:label "is stepparent of"@en .
 
-pfpt:Is-biological-parent-of rdfs:subClassOf pfpt:Is-parent-of ;
+pfpt:Is-biological-parent-of a owl:Class ;
+    rdfs:subClassOf pfpt:Is-parent-of ;
     rdfs:label "ist biologisches Elternteil von"@de ;
     rdfs:label "is biological parent of"@en .
 
-### grandparent
-
-pfpt:Is-grandparent-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-grandparent-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Großelternteil von"@de ;
     rdfs:label "is grandparent of"@en .
 
-pfpt:Is-grandchild-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-grandchild-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Enkel/Enkelin von"@de ;
     rdfs:label "is grandchild of"@en .
 
-### cousin / uncle-aunt / nephew-niece
-
-pfpt:Is-cousin-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-cousin-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Cousin/Cousine von"@de ;
     rdfs:label "is cousin of"@en .
 
-pfpt:Is-nephew-niece-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-nephew-niece-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Neffe/Nichte von"@de ;
     rdfs:label "is nephew/niece of"@en .
 
-pfpt:Is-uncle-aunt-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-uncle-aunt-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Onkel/Tante von"@de ;
     rdfs:label "is uncle/aunt of"@en .
 
-pfpt:Is-great-uncle-aunt-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-great-uncle-aunt-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Großonkel/Großtante von"@de ;
     rdfs:label "is great-uncle/aunt of"@en .
 
-pfpt:Is-great-nephew-niece-of rdfs:subClassOf pfpt:Family-relation ;
+pfpt:Is-great-nephew-niece-of a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Großneffe/Großnichte von"@de ;
     rdfs:label "is great-nephew/niece of"@en .
 
 ## work relations
 
-pfpt:In-professional-relation-to rdfs:subClassOf pfpt:In-relation-to ;
+pfpt:In-professional-relation-to a owl:Class ;
+    rdfs:subClassOf pfpt:In-relation-to ;
     rdfs:label "in beruflichem Bezug zu"@de ;
     rdfs:label "in professional relation to"@en .
 
-pfpt:Is-employer-of rdfs:subClassOf pfpt:In-professional-relation-to ;
+pfpt:Is-employer-of a owl:Class ;
+    rdfs:subClassOf pfpt:In-professional-relation-to ;
     rdfs:label "ist Arbeitgeber/Arbeitgeberin für"@de ;
     rdfs:label "is employer of"@en .
 
-pfpt:Works-for rdfs:subClassOf pfpt:In-professional-relation-to ;
+pfpt:Works-for a owl:Class ;
+    rdfs:subClassOf pfpt:In-professional-relation-to ;
     rdfs:label "arbeitet für"@de ;
     rdfs:label "works for"@en .
 
-pfpt:Works-together-with rdfs:subClassOf pfpt:In-professional-relation-to ;
+pfpt:Works-together-with a owl:Class ;
+    rdfs:subClassOf pfpt:In-professional-relation-to ;
     rdfs:label "arbeitet zusammen mit"@de ;
     rdfs:label "works together with"@en .
 
 ## teaching relations
 
-pfpt:In-study-relation-to rdfs:subClassOf pfpt:In-relation-to ;
+pfpt:In-study-relation-to a owl:Class ;
+    rdfs:subClassOf pfpt:In-relation-to ;
     rdfs:label "in Studienbeziehung zu"@de ;
     rdfs:label "in study relation to"@en .
 
-pfpt:Studies-together-with rdfs:subClassOf pfpt:In-study-relation-to ;
+pfpt:Studies-together-with a owl:Class ;
+    rdfs:subClassOf pfpt:In-study-relation-to ;
     rdfs:label "studiert gemeinsam"@de ;
     rdfs:label "studies together with"@en .
 
-pfpt:Is-student-of rdfs:subClassOf pfpt:In-study-relation-to ;
+pfpt:Is-student-of a owl:Class ;
+    rdfs:subClassOf pfpt:In-study-relation-to ;
     rdfs:label "ist Schüler/Schülerin von"@de ;
-    rdfs:label "is student of"@en ;
-    owl:inverseOf pfpt:Is-teacher-of .
+    rdfs:label "is student of"@en .
 
-pfpt:Is-teacher-of rdfs:subClassOf pfpt:In-study-relation-to ;
+pfpt:Is-teacher-of a owl:Class ;
+    rdfs:subClassOf pfpt:In-study-relation-to ;
     rdfs:label "ist Lehrer/Lehrerin von"@de ;
     rdfs:label "is teacher of"@en .
 
-# getrennt
+# separated
 
-pfpt:Is-separated-from rdfs:subClassOf pfpt:In-relation-to ;
+pfpt:Is-separated-from a owl:Class ;
+    rdfs:subClassOf pfpt:In-relation-to ;
     rdfs:label "ist getrennt von"@de ;
     rdfs:label "is separated from"@en .
 
-pfpt:Leaves-by-death rdfs:subClassOf pfpt:Is-separated-from ;
+pfpt:Leaves-by-death a owl:Class ;
+    rdfs:subClassOf pfpt:Is-separated-from ;
     rdfs:label "hinterlässt durch Tod"@de ;
     rdfs:label "leaves by death"@en .
 
-pfpt:Is-separated-by-death-from rdfs:subClassOf pfpt:Is-separated-from ;
+pfpt:Is-separated-by-death-from a owl:Class ;
+    rdfs:subClassOf pfpt:Is-separated-from ;
     rdfs:label "ist durch Tod getrennt von"@de ;
     rdfs:label "is separated by death from"@en .
 
-pfpt:Is-divorced-from rdfs:subClassOf pfpt:Is-separated-from ;
+pfpt:Is-divorced-from a owl:Class ;
+    rdfs:subClassOf pfpt:Is-separated-from ;
     rdfs:label "ist geschieden von"@de ;
     rdfs:label "is divorced from"@en .
