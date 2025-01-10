@@ -1,0 +1,161 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix pfp-types: <http://pfp-types.acdh.oeaw.ac.at/#> .
+
+# person relations
+
+pfp-types:In-relation-to a crm:E55_Type ;
+    rdfs:label "in Bezug zu"@de ,
+    rdfs:label "in relation to"@en .
+
+pfp-types:Friendship rdfs:subClassOf pfp-types:In-relation-to ;
+    rdfs:label "Freundschaft"@de ,
+    rdfs:label "friendship"@en .
+
+pfp-types:Intimate-relation rdfs:subClassOf pfp-types:In-relation-to ;
+    rdfs:label "in intimer Beziehung zu"@de ,
+    rdfs:label "in intimate relation to"@en .
+
+pfp-types:Hostile-relation rdfs:subClassOf pfp-types:In-relation-to ;
+    rdfs:label "in feindschaftlicher Beziehung"@de ,
+    rdfs:label "in hostile relation"@en .
+
+## familiy relations
+
+pfp-types:Family-relation rdfs:subClassOf pfp-types:In-relation-to ;
+    rdfs:label "Familienbeziehung"@de ,
+    rdfs:label "family relation"@en .
+
+pfp-types:Is-engaged-to rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist verlobt mit"@de ,
+    rdfs:label "is engaged to"@en .
+
+
+pfp-types:Is-guardian-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Vormund von"@de ,
+    rdfs:label "is guardian of"@en .
+
+### siblings
+
+pfp-types:Is-sibling-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Geschwister von"@de ,
+    rdfs:label "is-sibling of"@en .
+
+pfp-types:Is-step-sibling-of rdfs:subClassOf pfp-types:Is-sibling-of ;
+    rdfs:label "ist Stiefgeschwister von"@de ,
+    rdfs:label "is step-sibling of"@en .
+
+### child
+
+pfp-types:Is-child-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Kind von"@de ,
+    rdfs:label "is child of"@en .
+
+pfp-types:Is-biological-child-of rdfs:subClassOf pfp-types:Is-child-of ;
+    rdfs:label "ist biologisches Kind von"@de ,
+    rdfs:label "is biological child of"@en .
+
+pfp-types:Is-stepchild-of a crm:E55_Type ;
+    rdfs:label "ist Stiefkind von"@de ,
+    rdfs:label "is stepchild of"@en .
+
+### parent
+
+pfp-types:Is-parent-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Elternteil von"@de ,
+    rdfs:label "is parent of"@en .
+
+pfp-types:Is-stepparent-of rdfs:subClassOf pfp-types:Is-parent-of ;
+    rdfs:label "ist Stiefelternteil von"@de ,
+    rdfs:label "is stepparent of"@en .
+
+pfp-types:Is-biological-parent-of rdfs:subClassOf pfp-types:Is-parent-of ;
+    rdfs:label "ist biologisches Elternteil von"@de ,
+    rdfs:label "is biological parent of"@en .
+
+### grandparent
+
+pfp-types:Is-grandparent-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Großelternteil von"@de ,
+    rdfs:label "is grandparent of"@en .
+
+pfp-types:Is-grandchild-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Enkel/Enkelin von"@de ,
+    rdfs:label "is grandchild of"@en .
+
+### cousin / uncle-aunt / nephew-niece
+
+pfp-types:Is-cousin-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Cousin/Cousine von"@de ,
+    rdfs:label "is cousin of"@en .
+
+pfp-types:Is-nephew-niece-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Neffe/Nichte von"@de ,
+    rdfs:label "is nephew/niece of"@en .
+
+pfp-types:Is-uncle-aunt-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Onkel/Tante von"@de ,
+    rdfs:label "is uncle/aunt of"@en .
+
+pfp-types:Is-great-uncle-aunt-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Großonkel/Großtante von"@de ,
+    rdfs:label "is great-uncle/aunt of"@en .
+
+pfp-types:Is-great-nephew-niece-of rdfs:subClassOf pfp-types:Family-relation ;
+    rdfs:label "ist Großneffe/Großnichte von"@de ,
+    rdfs:label "is great-nephew/niece of"@en .
+
+## work relations
+
+pfp-types:In-professional-relation-to rdfs:subClassOf pfp-types:In-relation-to ;
+    rdfs:label "in beruflichem Bezug zu"@de ,
+    rdfs:label "in professional relation to"@en .
+
+pfp-types:Is-employer-of rdfs:subClassOf pfp-tpyes:In-professional-relation-to ;
+    rdfs:label "ist Arbeitgeber/Arbeitgeberin für"@de ,
+    rdfs:label "is employer of"@en .
+
+pfp-types:Works-for rdfs:subClassOf pfp-tpyes:In-professional-relation-to ;
+    rdfs:label "arbeitet für"@de ,
+    rdfs:label "works for"@en .
+
+pfp-types:Works-together-with rdfs:subClassOf pfp-tpyes:In-professional-relation-to ;
+    rdfs:label "arbeitet zusammen mit"@de ,
+    rdfs:label "works together with"@en .
+
+## teaching relations
+
+pfp-types:In-study-relation-to rdfs:subClassOf pfp-types:In-relation-to ;
+    rdfs:label "in Studienbeziehung zu"@de ,
+    rdfs:label "in study relation to"@en .
+
+pfp-types:Studies-together-with rdfs:subClassOf pfp-types:In-study-relation-to ;
+    rdfs:label "studiert gemeinsam"@de ,
+    rdfs:label "studies together with"@en .
+
+pfp-types:Is-student-of rdfs:subClassOf pfp-types:In-study-relation-to ;
+    rdfs:label "ist Schüler/Schülerin von"@de ,
+    rdfs:label "is student of"@en ;
+    owl:inverseOf pfp-types:Is-teacher-of .
+
+pfp-types:Is-teacher-of rdfs:subClassOf pfp-types:In-study-relation-to ;
+    rdfs:label "ist Lehrer/Lehrerin von"@de ,
+    rdfs:label "is teacher of"@en .
+
+# getrennt
+
+pfp-types:Is-separated-from a crm:E55_Type ;
+    rdfs:label "ist getrennt von"@de ,
+    rdfs:label "is separated from"@en .
+
+pfp-types:Leaves-by-death rdfs:subClassOf pfp-types:Is-separated-from ;
+    rdfs:label "hinterlässt durch Tod"@de ,
+    rdfs:label "leaves by death"@en .
+
+pfp-types:Is-separated-by-death-from rdfs:subClassOf pfp-types:Is-separated-from ;
+    rdfs:label "ist durch Tod getrennt von"@de ,
+    rdfs:label "is separated by death from"@en .
+
+pfp-types:Is-divorced-from rdfs:subClassOf pfp-types:Is-separated-from ;
+    rdfs:label "ist geschieden von"@de ,
+    rdfs:label "is divorced from"@en .
