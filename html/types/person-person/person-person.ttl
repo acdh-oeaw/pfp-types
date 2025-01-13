@@ -59,6 +59,18 @@ pfpt:Is-related-by-marriage-to a owl:Class ;
     rdfs:label "is related by marriage to"@en ;
     rdfs:comment "A relationship where two persons are related by marriage."@en .
 
+pfpt:Is-parent-in-law-of a owl:Class ;
+    rdfs:subClassOf pfpt:Is-related-by-marriage-to ;
+    rdfs:label "ist Schwiegerelternteil von"@de ;
+    rdfs:label "is parent-in-law of"@en ;
+    rdfs:comment "A parent-in-law relationship where one person is the parent-in-law of another."@en .
+
+pfpt:Is-child-in-law-of a owl:Class ;
+    rdfs:subClassOf pfpt:Is-related-by-marriage-to ;
+    rdfs:label "ist Schwiegerkind von"@de ;
+    rdfs:label "is child-in-law of"@en ;
+    rdfs:comment "A child-in-law relationship where one person is the child-in-law of another."@en .
+
 pfpt:Is-guardian-of a owl:Class ;
     rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist Vormund von"@de ;
