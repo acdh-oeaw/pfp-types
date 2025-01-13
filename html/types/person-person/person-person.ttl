@@ -41,11 +41,23 @@ pfpt:Family-relation a owl:Class ;
     rdfs:label "family relation"@en ;
     rdfs:comment "A family relationship between two persons."@en .
 
+pfpt:Is-married-to a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
+    rdfs:label "ist verheiratet mit"@de ;
+    rdfs:label "is married to"@en ;
+    rdfs:comment "A relationship where two persons are married."@en .   
+
 pfpt:Is-engaged-to a owl:Class ;
     rdfs:subClassOf pfpt:Family-relation ;
     rdfs:label "ist verlobt mit"@de ;
     rdfs:label "is engaged to"@en ;
     rdfs:comment "A relationship where two persons are engaged to be married."@en .
+
+pfpt:Is-related-by-marriage-to a owl:Class ;
+    rdfs:subClassOf pfpt:Family-relation ;
+    rdfs:label "ist verschwägert"@de ;
+    rdfs:label "is related by marriage to"@en ;
+    rdfs:comment "A relationship where two persons are related by marriage."@en .
 
 pfpt:Is-guardian-of a owl:Class ;
     rdfs:subClassOf pfpt:Family-relation ;
@@ -93,6 +105,18 @@ pfpt:Is-stepparent-of a owl:Class ;
     rdfs:label "ist Stiefelternteil von"@de ;
     rdfs:label "is stepparent of"@en ;
     rdfs:comment "A stepparent relationship where one person is the stepparent of another."@en .
+
+pfpt:Is-adopted-parent-of a owl:Class ;
+    rdfs:subClassOf pfpt:Is-parent-of ;
+    rdfs:label "ist Adoptivelternteil von"@de ;
+    rdfs:label "is adopted parent of"@en ;
+    rdfs:comment "An adopted parent relationship where one person is the adopted parent of another."@en .
+
+pfpt:Is-adopted-child-of a owl:Class ;
+    rdfs:subClassOf pfpt:Is-child-of ;
+    rdfs:label "ist Adoptivkind von"@de ;
+    rdfs:label "is adopted child of"@en ;
+    rdfs:comment "An adopted child relationship where one person is the adopted child of another."@en . 
 
 pfpt:Is-biological-parent-of a owl:Class ;
     rdfs:subClassOf pfpt:Is-parent-of ;

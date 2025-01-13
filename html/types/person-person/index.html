@@ -516,7 +516,19 @@ td {
                 <ul>
                   <li>
                     <span>
+                      <a href="#Is-married-to">ist verheiratet mit</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
                       <a href="#Is-engaged-to">ist verlobt mit</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Is-related-by-marriage-to">ist verschwägert</a>
                       <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                     </span>
                   </li>
@@ -591,6 +603,36 @@ td {
             </tr>
           </table>
         </div>
+        <div class="property entity" id="Is-married-to">
+          <h3>ist verheiratet mitis married to
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://pfp-schema.acdh.oeaw.ac.at/types/person-person/#Is-married-to</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>A relationship where two persons are married.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Family-relation">Familienbeziehung</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="Is-engaged-to">
           <h3>ist verlobt mitis engaged to
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -607,6 +649,36 @@ td {
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
               <td><p>A relationship where two persons are engaged to be married.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Family-relation">Familienbeziehung</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Is-related-by-marriage-to">
+          <h3>ist verschwägertis related by marriage to
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://pfp-schema.acdh.oeaw.ac.at/types/person-person/#Is-related-by-marriage-to</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>A relationship where two persons are related by marriage.</p></td>
             </tr>
             <tr>
               <th>
@@ -755,10 +827,20 @@ td {
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
               </th>
               <td>
-                <span>
-                  <a href="#Is-biological-child-of">ist biologisches Kind von</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#Is-biological-child-of">ist biologisches Kind von</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Is-adopted-child-of">ist Adoptivkind von</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
               </td>
             </tr>
           </table>
@@ -854,6 +936,12 @@ td {
                   </li>
                   <li>
                     <span>
+                      <a href="#Is-adopted-parent-of">ist Adoptivelternteil von</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
                       <a href="#Is-biological-parent-of">ist biologisches Elternteil von</a>
                       <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                     </span>
@@ -887,6 +975,66 @@ td {
               <td>
                 <span>
                   <a href="#Is-parent-of">ist Elternteil von</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Is-adopted-parent-of">
+          <h3>ist Adoptivelternteil vonis adopted parent of
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://pfp-schema.acdh.oeaw.ac.at/types/person-person/#Is-adopted-parent-of</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>An adopted parent relationship where one person is the adopted parent of another.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Is-parent-of">ist Elternteil von</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Is-adopted-child-of">
+          <h3>ist Adoptivkind vonis adopted child of
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://pfp-schema.acdh.oeaw.ac.at/types/person-person/#Is-adopted-child-of</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>An adopted child relationship where one person is the adopted child of another.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Is-child-of">ist Kind von</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -1662,7 +1810,13 @@ td {
               <a href="#Family-relation">Familienbeziehungfamily relation</a>
             </li>
             <li>
+              <a href="#Is-married-to">ist verheiratet mitis married to</a>
+            </li>
+            <li>
               <a href="#Is-engaged-to">ist verlobt mitis engaged to</a>
+            </li>
+            <li>
+              <a href="#Is-related-by-marriage-to">ist verschwägertis related by marriage to</a>
             </li>
             <li>
               <a href="#Is-guardian-of">ist Vormund vonis guardian of</a>
@@ -1687,6 +1841,12 @@ td {
             </li>
             <li>
               <a href="#Is-stepparent-of">ist Stiefelternteil vonis stepparent of</a>
+            </li>
+            <li>
+              <a href="#Is-adopted-parent-of">ist Adoptivelternteil vonis adopted parent of</a>
+            </li>
+            <li>
+              <a href="#Is-adopted-child-of">ist Adoptivkind vonis adopted child of</a>
             </li>
             <li>
               <a href="#Is-biological-parent-of">ist biologisches Elternteil vonis biological parent of</a>
