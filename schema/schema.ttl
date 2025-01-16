@@ -1,0 +1,20 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix pfp: <http://pfp-schema.acdh.oeaw.ac.at/#> .
+
+<http://pfp-schema.acdh.oeaw.ac.at/#> a owl:Ontology ;
+    dc:title "PFP Schema" .
+
+pfp:provided_entity a owl:Class ;
+    rdfs:label "provided entity"@en ;
+    rdfs:comment "An entity that is provided by a provider."@en .
+
+pfp:proxy_for a owl:ObjectProperty ;
+    rdfs:label "proxy for"@en ;
+    rdfs:comment "A proxy for an entity."@en ;
+    rdfs:domain [ a owl:Class ;
+                  owl:unionOf ( crm:E21 crm:E74 crm:E53 ) ] ;
+    rdfs:range pfp:provided_entity .
