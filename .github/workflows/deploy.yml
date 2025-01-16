@@ -6,11 +6,11 @@ on:
   push:
     branches:
       - main
-    workflow_dispatch:
     secrets:
       C2_KUBE_CONFIG:
         description: 'The kubctl config file with credentials to access the your kubernetes'
         required: true
+  workflow_dispatch:
 
 jobs:
   setup_workflow_env:
