@@ -1,18 +1,346 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix ex: <http://example.org/ns#> .
+@prefix pfp: <http://pfp-schema.acdh.oeaw.ac.at/shacl/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ex:PersonShape
-    a sh:NodeShape ;
-    sh:targetClass ex:Person ;
+
+pfp:crm_E21_Person a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
     sh:property [
-        sh:path ex:name ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:path crm:P1_is_identified_by ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [
+            sh:class crm:E33_E41_Linguistic_Appellation ; # at least one E33_E41_Linguistic_Appellation
+        ] ;
+	sh:message "Every Person needs at least one appellation attached to the crm:E21_Person instance. Note that this can the same as the rdfs:label that is also needed."
     ] ;
     sh:property [
-        sh:path ex:age ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 0 ;
+        sh:path crm:P98i_was_born ;
+        sh:class crm:E67_Birth ;
+        sh:maxCount 1 ;
+        sh:message "Every Person can have max one birth event." ;
+    ] ;
+    sh:property [
+        sh:path crm:P100i_died_in ;
+        sh:class crm:E69_Death ;
+        sh:maxCount 1 ;
+        sh:message "Every Person can have max one death event." ;
+    ] ;
+    sh:property [
+        sh:path crm:P143i_was_joined_by ;
+        sh:class crm:E85_Joining ;
+        sh:message "A Person can be connected to multiple joining events." ;
+    ] ;
+    sh:property [
+        sh:path crm:P145i_was_separated_by ;
+        sh:class crm:E86_Leaving ;
+        sh:message "A Person can be connected to multiple leaving events." ;
+    ] ;
+    sh:property [
+        sh:path crm:P1_is_identified_by ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [
+            sh:class crm:E42_Identifier ;
+        ] ;
+	sh:message "Every Person needs at least one identifier attached to the crm:E21_Person instance."
+    ] ;
+    sh:property [
+	sh:path rdfs:label ;
+	sh:nodeKind sh:Literal ;
+	sh:minCount 1 ;
+	sh:message "Every person needs st least one rdfs:label directly attached to the crm:E21_Person instance."
+    ] ;
+    sh:targetClass crm:E21_Person .
+
+pfp:crm_E74_Group a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path crm:P1_is_identified_by ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [
+            sh:class crm:E33_E41_Linguistic_Appellation ;
+        ] ;
+	sh:message "Every Group needs at least one appellation attached to the crm:E74_Group instance. Note that this can the same as the rdfs:label that is also needed."
+    ] ;
+    sh:property [
+        sh:path crm:P1_is_identified_by ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [
+            sh:class crm:E42_Identifier ;
+        ] ;
+	sh:message "Every Group needs at least one identifier attached to the crm:E74_Group instance."
+    ] ;
+    sh:property [
+	sh:path rdfs:label ;
+	sh:nodeKind sh:Literal ;
+	sh:minCount 1 ;
+	sh:message "Every group needs at least one rdfs:label directly attached to the crm:E74_Group instance."
+    ] ;
+    sh:property [
+        sh:path crm:P144i_gained_member_by ;
+        sh:class crm:E85_Joining ;
+        sh:message "A Group can be connected to multiple joining events." ;
+    ] ;
+    sh:property [
+        sh:path crm:P146i_lost_member_by ;
+        sh:class crm:E86_Leaving ;
+        sh:message "A Group can be connected to multiple leaving events." ;
+    ] ;
+    sh:targetClass crm:E74_Group .
+
+pfp:crm_E53_Place a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path crm:P1_is_identified_by ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [
+            sh:class crm:E33_E41_Linguistic_Appellation ;
+        ] ;
+	sh:message "Every Place needs at least one appellation attached to the crm:E53_Place instance. Note that this can the same as the rdfs:label that is also needed."
+    ] ;
+    sh:property [
+        sh:path crm:P1_is_identified_by ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [
+            sh:class crm:E42_Identifier ;
+        ] ;
+	sh:message "Every Place needs at least one identifier attached to the crm:E53_Place instance."
+    ] ;
+    sh:property [
+	sh:path rdfs:label ;
+	sh:nodeKind sh:Literal ;
+	sh:minCount 1 ;
+	sh:message "Every place needs at least one rdfs:label directly attached to the crm:E53_Place instance."
+    ] ;
+    sh:targetClass crm:E53_Place .
+
+pfp:crm_E33_E41_Linguistic_Appellation a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property [
+	sh:path crm:P148_has_component ;
+	sh:class crm:E33_E41_Linguistic_Appellation
+    ] ;
+    sh:property [
+	sh:path rdfs:label ;
+	sh:nodeKind sh:Literal ;
+    ] ;
+    sh:targetClass crm:E33_E41_Linguistic_Appellation .
+
+pfp:crm_E67_Birth a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass crm:E67_Birth ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+        sh:message "Every Birth event needs at least one rdfs:label." ;
+    ] ;
+    sh:property [
+        sh:path crm:P98_brought_into_life ;
+        sh:class crm:E21_Person ;
+        sh:maxCount 1 ;
+        sh:message "Every Birth event can have only one Person attached." ;
+    ] ;
+    sh:property [
+        sh:path crm:P4_has_time-span ;
+        sh:class crm:E52_Time-Span ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Every Birth event must have exactly one time-span." ;
+    ] .
+
+pfp:crm_E69_Death a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass crm:E69_Death ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+        sh:message "Every Death event needs at least one rdfs:label." ;
+    ] ;
+    sh:property [
+        sh:path crm:P100_was_death_of ;
+        sh:class crm:E21_Person ;
+        sh:maxCount 1 ;
+        sh:message "Every Death event can have only one Person attached." ;
+    ] ;
+    sh:property [
+        sh:path crm:P4_has_time-span ;
+        sh:class crm:E52_Time-Span ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Every Death event must have exactly one time-span." ;
+    ] .
+
+pfp:crm_E85_Joining a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass crm:E85_Joining ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+        sh:message "Every Joining event needs at least one rdfs:label." ;
+    ] ;
+    sh:property [
+        sh:path crm:P143_joined ;
+        sh:class crm:E21_Person ;
+        sh:minCount 1 ;
+        sh:message "Every Joining event must have at least one Person who joined." ;
+    ] ;
+    sh:property [
+        sh:path crm:P4_has_time-span ;
+        sh:class crm:E52_Time-Span ;
+        sh:maxCount 1 ;
+        sh:message "Every Joining event can have max one time-span." ;
+    ] ;
+    sh:or (
+        [
+            sh:property [
+                sh:path crm:P144_joined_with ;
+                sh:class crm:E74_Group ;
+                sh:minCount 1 ;
+            ]
+        ]
+        [
+            sh:property [
+                sh:path [
+                    sh:alternativePath (
+                        crm:P01i_is_domain_of
+                        [sh:inversePath crm:P01_is_domain_of]
+                    )
+                ] ;
+                sh:class crm:PC144_joined_with ;
+                sh:minCount 1 ;
+            ]
+        ]
+    ) ;
+    sh:message "Every Joining event must either have a direct connection to a Group via P144_joined_with or be connected to a PC144_joined_with instance." .
+
+pfp:crm_PC144_joined_with a sh:NodeShape ;
+	sh:nodeKind sh:BlankNodeOrIRI ;
+	sh:targetClass crm:PC144_joined_with ;
+	sh:property [
+		sh:path [
+			sh:alternativePath (
+				[sh:inversePath crm:P01i_is_domain_of]  # E85 is subject
+				crm:P01_is_domain_of                    # E85 is object
+			)
+		] ;
+		sh:class crm:E85_Joining ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:message "PC144_joined_with must be connected to exactly one E85_Joining event." ;
+	] ;
+	sh:property [
+		sh:path [
+			sh:alternativePath (
+				[sh:inversePath crm:P02i_has_range] 
+				crm:P02_has_range                   
+			)
+		] ;
+		sh:class crm:E74_Group ;
+	sh:minCount 1 ;
+	sh:message "PC144_joined_with must be connected to at least one group." ;
+	] ;
+	sh:property [
+		sh:path crm:P144_1_kind_of_member ;
+		sh:class crm:E55_Type ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:message "PC144_joined_with needs a E55_Type for defining the type of membership"
+	] .
+
+
+pfp:crm_E52_Time-Span a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass crm:E52_Time-Span ;
+    sh:xone (
+        [
+            sh:property [
+                sh:path crm:P82_at_some_time_within ;
+                sh:or (
+                    [ sh:datatype xsd:gYear ]
+                    [ sh:datatype xsd:date ]
+                    [ sh:datatype xsd:gYearMonth ]
+                ) ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:message "If using P82_at_some_time_within, exactly one date value (either year or full date) is required." ;
+            ]
+        ]
+        [
+            sh:property [
+                sh:path crm:P82a_begin_of_the_begin ;
+                sh:or (
+                    [ sh:datatype xsd:gYear ]
+                    [ sh:datatype xsd:date ]
+                    [ sh:datatype xsd:gYearMonth ]
+                ) ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:message "When using begin/end properties, P82a_begin_of_the_begin must have exactly one date value." ;
+            ] ;
+            sh:property [
+                sh:path crm:P82b_end_of_the_end ;
+                sh:or (
+                    [ sh:datatype xsd:gYear ]
+                    [ sh:datatype xsd:date ]
+                    [ sh:datatype xsd:gYearMonth ]
+                ) ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:message "When using begin/end properties, P82b_end_of_the_end must have exactly one date value." ;
+            ]
+        ]
+    ) .
+
+pfp:crm_E86_Leaving a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass crm:E86_Leaving ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+        sh:message "Every Leaving event needs at least one rdfs:label." ;
+    ] ;
+    sh:property [
+        sh:path [
+            sh:alternativePath (
+                crm:P145_separated
+                [sh:inversePath crm:P145i_was_separated_by]
+            )
+        ] ;
+        sh:class crm:E21_Person ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Every Leaving event must have exactly one Person who left (via P145_separated or P145i_was_separated_by)." ;
+    ] ;
+    sh:property [
+        sh:path [
+            sh:alternativePath (
+                crm:P146_separated_from
+                [sh:inversePath crm:P146i_lost_member_by]
+            )
+        ] ;
+        sh:class crm:E74_Group ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Every Leaving event must specify exactly one Group that was left (via P146_separated_from or P146i_lost_member_by)." ;
+    ] ;
+    sh:property [
+        sh:path crm:P4_has_time-span ;
+        sh:class crm:E52_Time-Span ;
+        sh:maxCount 1 ;
+        sh:message "Every Leaving event can have max one time-span." ;
+    ] .
+
+pfp:crm_E55_Type a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass crm:E55_Type ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+        sh:message "Every Type must have at least one label." ;
     ] .
