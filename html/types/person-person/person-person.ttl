@@ -9,8 +9,8 @@
 
 # person relations
 
-pfpt:In-relation-to a crm:E55_Type ;
-    a owl:Class ; # needed to be picked up by pylobid
+pfpt:In-relation-to a owl:Class ; # needed to be picked up by pylobid
+    rdfs:subClassOf crm:E55_Type ;
     rdfs:label "in Bezug zu"@de ;
     rdfs:label "in relation to"@en ;
     rdfs:comment "A general relation between two persons."@en .
