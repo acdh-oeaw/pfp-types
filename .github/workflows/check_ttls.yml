@@ -16,6 +16,6 @@ jobs:
           python-version: "3.12"
           cache: "pip"
       - name: Install Python Packages
-        run: pip install rdflib
+        run: pip install -r requirments.txt
       - name: run check script
         run: python scripts/well_formed_check.py
