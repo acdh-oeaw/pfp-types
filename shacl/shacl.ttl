@@ -1,11 +1,12 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix pfp: <http://pfp-schema.acdh.oeaw.ac.at/shacl/> .
+@prefix pfpsh: <http://pfp-schema.acdh.oeaw.ac.at/shacl/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 
 
-pfp:crm_E21_Person a sh:NodeShape ;
+pfpsh:crm_E21_Person a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:property [
         sh:path crm:P1_is_identified_by ;
@@ -53,7 +54,7 @@ pfp:crm_E21_Person a sh:NodeShape ;
     ] ;
     sh:targetClass crm:E21_Person .
 
-pfp:crm_E74_Group a sh:NodeShape ;
+pfpsh:crm_E74_Group a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:property [
         sh:path crm:P1_is_identified_by ;
@@ -89,7 +90,7 @@ pfp:crm_E74_Group a sh:NodeShape ;
     ] ;
     sh:targetClass crm:E74_Group .
 
-pfp:crm_E53_Place a sh:NodeShape ;
+pfpsh:crm_E53_Place a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:property [
         sh:path crm:P1_is_identified_by ;
@@ -113,9 +114,15 @@ pfp:crm_E53_Place a sh:NodeShape ;
 	sh:minCount 1 ;
 	sh:message "Every place needs at least one rdfs:label directly attached to the crm:E53_Place instance."
     ] ;
+    sh:property [
+        sh:path crm:P168_place_is_defined_by ;
+        sh:datatype geo:wktLiteral ;
+        sh:maxCount 1 ;
+        sh:message "A Place can have maximum one P168_place_is_defined_by property with a geo:wktLiteral value." ;
+    ] ;
     sh:targetClass crm:E53_Place .
 
-pfp:crm_E33_E41_Linguistic_Appellation a sh:NodeShape ;
+pfpsh:crm_E33_E41_Linguistic_Appellation a sh:NodeShape ;
     sh:nodeKind sh:BlankNodeOrIRI ;
     sh:property [
 	sh:path crm:P148_has_component ;
@@ -127,7 +134,7 @@ pfp:crm_E33_E41_Linguistic_Appellation a sh:NodeShape ;
     ] ;
     sh:targetClass crm:E33_E41_Linguistic_Appellation .
 
-pfp:crm_E67_Birth a sh:NodeShape ;
+pfpsh:crm_E67_Birth a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:targetClass crm:E67_Birth ;
     sh:property [
@@ -150,7 +157,7 @@ pfp:crm_E67_Birth a sh:NodeShape ;
         sh:message "Every Birth event must have exactly one time-span." ;
     ] .
 
-pfp:crm_E69_Death a sh:NodeShape ;
+pfpsh:crm_E69_Death a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:targetClass crm:E69_Death ;
     sh:property [
@@ -173,7 +180,7 @@ pfp:crm_E69_Death a sh:NodeShape ;
         sh:message "Every Death event must have exactly one time-span." ;
     ] .
 
-pfp:crm_E85_Joining a sh:NodeShape ;
+pfpsh:crm_E85_Joining a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:targetClass crm:E85_Joining ;
     sh:property [
@@ -217,7 +224,7 @@ pfp:crm_E85_Joining a sh:NodeShape ;
     ) ;
     sh:message "Every Joining event must either have a direct connection to a Group via P144_joined_with or be connected to a PC144_joined_with instance." .
 
-pfp:crm_PC144_joined_with a sh:NodeShape ;
+pfpsh:crm_PC144_joined_with a sh:NodeShape ;
 	sh:nodeKind sh:BlankNodeOrIRI ;
 	sh:targetClass crm:PC144_joined_with ;
 	sh:property [
@@ -252,7 +259,7 @@ pfp:crm_PC144_joined_with a sh:NodeShape ;
 	] .
 
 
-pfp:crm_E52_Time-Span a sh:NodeShape ;
+pfpsh:crm_E52_Time-Span a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:targetClass crm:E52_Time-Span ;
     sh:xone (
@@ -295,7 +302,7 @@ pfp:crm_E52_Time-Span a sh:NodeShape ;
         ]
     ) .
 
-pfp:crm_E86_Leaving a sh:NodeShape ;
+pfpsh:crm_E86_Leaving a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:targetClass crm:E86_Leaving ;
     sh:property [
@@ -335,7 +342,7 @@ pfp:crm_E86_Leaving a sh:NodeShape ;
         sh:message "Every Leaving event can have max one time-span." ;
     ] .
 
-pfp:crm_E55_Type a sh:NodeShape ;
+pfpsh:crm_E55_Type a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:targetClass crm:E55_Type ;
     sh:property [
