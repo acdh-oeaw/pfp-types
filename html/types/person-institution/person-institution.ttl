@@ -1,0 +1,85 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pfpt: <http://pfp-schema.acdh.oeaw.ac.at/types/person-institution/#> .
+
+<http://pfp-schema.acdh.oeaw.ac.at/types/person-institution> a owl:Ontology ;
+    dc:title "PFP cidoc:E55_Type definitions for Person Institution (and Institution Person) relations" .
+
+pfpt:Person-institution-relation a owl:Class ;
+    rdfs:subClassOf crm:E55_Type ;
+    rdfs:label "Person Institution Beziehung"@de ;
+    rdfs:label "Person institution relation"@en ;
+    rdfs:comment "This class comprises all relations between a person and an institution."@en .
+
+pfpt:Institution-person-relation a owl:Class ;
+    rdfs:subClassOf crm:E55_Type ;
+    rdfs:label "Institution Person Beziehung"@de ;
+    rdfs:label "Institution person relation"@en ;
+    rdfs:comment "This class comprises all relations between an institution and a person."@en .
+
+pfpt:Works-for-institution a owl:Class ;
+    rdfs:subClassOf pfpt:Person-institution-relation ;
+    rdfs:label "Works for institution"@en ;
+    rdfs:label "Arbeitet für Institution"@de ;
+    rdfs:comment "This class comprises all relations between a person and an institution where the person works for the institution."@en .
+
+pfpt:Institution-has-employee a owl:Class ;
+    rdfs:subClassOf pfpt:Institution-person-relation ;
+    rdfs:label "Has employee"@en ;
+    rdfs:label "Hat Mitarbeiter"@de ;
+    rdfs:comment "This class comprises all relations between an institution and a person where the institution has the person as an employee."@en .
+
+pfpt:Has-member a owl:Class ;
+    rdfs:subClassOf pfpt:Institution-person-relation ;
+    rdfs:label "Has member"@en ;
+    rdfs:label "Hat Mitglied"@de ;
+    rdfs:comment "This class comprises all relations between an institution and a person where the institution has the person as a member."@en .
+
+pfpt:Is-member-of-institution a owl:Class ;
+    rdfs:subClassOf pfpt:Person-institution-relation ;
+    rdfs:label "Is member of"@en ;
+    rdfs:label "Ist Mitglied von"@de ;
+    rdfs:comment "This class comprises all relations between a person and an institution where the person is a member of the institution."@en .
+
+pfpt:Is-teaching-at a owl:Class ;
+    rdfs:subClassOf pfpt:Works-for-institution ;
+    rdfs:label "Is teaching at"@en ;
+    rdfs:label "Lehrt an"@de ;
+    rdfs:comment "This class comprises all relations between a person and an institution where the person is teaching at the institution."@en .
+
+pfpt:Institution-has-teacher a owl:Class ;
+    rdfs:subClassOf pfpt:Institution-has-employee ;
+    rdfs:label "Institution has teacher"@en ;
+    rdfs:label "Institution hat Lehrer"@de ;
+    rdfs:comment "This class comprises all relations between an institution and a person where the institution has the person as a teacher."@en .
+
+pfpt:Institution-has-student a owl:Class ;
+    rdfs:subClassOf pfpt:Institution-person-relation ;
+    rdfs:label "Institution has student"@en ;
+    rdfs:label "Institution hat Student"@de ;
+    rdfs:comment "This class comprises all relations between an institution and a person where the institution has the person as a student."@en .
+
+pfpt:Person-studies-at a owl:Class ;
+    rdfs:subClassOf pfpt:Person-institution-relation ;
+    rdfs:label "Person studies at"@en ;
+    rdfs:label "Person studiert an"@de ;
+    rdfs:comment "This class comprises all relations between a person and an institution where the person is studying at the institution."@en .
+
+pfpt:Person-owns-Institution a owl:Class ;  # not sure if this is needed because there might be another cidoc-crm path to express ownership?
+    rdfs:subClassOf pfpt:Person-institution-relation ;
+    rdfs:label "Person owns Institution"@en ;
+    rdfs:label "Person besitzt Institution"@de ;
+    rdfs:comment "This class comprises all relations between a person and an institution where the person owns the institution."@en .
+
+pfpt:Institution-os-owned-by-person a owl:Class ;
+    rdfs:subClassOf pfpt:Institution-person-relation ;
+    rdfs:label "Institution is owned by person"@en ;
+    rdfs:label "Institution wird von Person besessen"@de ;
+    rdfs:comment "This class comprises all relations between an institution and a person where the institution is owned by the person."@en .
+    
+
+
+
+
