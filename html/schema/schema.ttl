@@ -3,9 +3,9 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix ore: <http://www.openarchives.org/ore/terms/> .
-@prefix pfp: <http://pfp-schema.acdh.oeaw.ac.at/#> .
+@prefix pfp: <http://pfp-schema.acdh.oeaw.ac.at/schema#> .
 
-<http://pfp-schema.acdh.oeaw.ac.at/#> a owl:Ontology ;
+<http://pfp-schema.acdh.oeaw.ac.at/schema#> a owl:Ontology ;
     dc:title "PFP Schema" .
 
 pfp:provided_entity a owl:Class ;
