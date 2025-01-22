@@ -15,5 +15,6 @@ The PFP - [Prosopographic Research Platform](https://www.oeaw.ac.at/acdh/researc
 
 ```bash
 docker build -t pfp-schema:latest .
-docker run -d -p 5000:5000 --name pfp-schema pfp-schema:latest
+docker run --rm -d -p 5000:5000 --name pfp-schema pfp-schema:latest
+docker exec -it pfp-schema /bin/bash
 ```
