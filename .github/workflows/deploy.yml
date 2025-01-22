@@ -32,12 +32,11 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@v5
 
-      - name: Install pylode
-        run: pip install pylode
+      - name: Install requirements.txt
+        run: pip install -r requirements.txt
 
-      - name: Generate documentation
-        run: |
-          for file in `find types -name '*.ttl'`; do mkdir -p html/${file%.*}; pylode $file -o html/${file%.*}/index.html; done
+      - name: Build Website
+        run: python scripts/build.py
 
       - name: Login to ghcr.io
         uses: docker/login-action@v2
