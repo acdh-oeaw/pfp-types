@@ -8,7 +8,7 @@ The PFP - [Prosopographic Research Platform](https://www.oeaw.ac.at/acdh/researc
 
 * clone the repo
 * (create virtual env e.g. `python -m venv venv`)
-* `python scripts/build_static.py` to build the website and convert .ttl stored in anywhere in the `./html` into HTML sites using [pylode](https://github.com/rdflib/pyLODE)
+* `python scripts/build.py` to build the website and convert .ttl stored in anywhere in the `./html` into HTML sites using [pylode](https://github.com/rdflib/pyLODE)
 
 
 ## docker
