@@ -171,3 +171,4 @@ cython_debug/
 .pypirc
 play.py
 *.html
+html/types/types.ttl
