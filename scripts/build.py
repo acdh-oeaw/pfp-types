@@ -5,6 +5,8 @@ import jinja2
 import requests
 from pylode.profiles.ontpub import OntPub
 
+from add_type_labels import make_types
+
 
 templateLoader = jinja2.FileSystemLoader(searchpath=".")
 templateEnv = jinja2.Environment(loader=templateLoader)
@@ -54,4 +56,5 @@ for x in glob.glob(f"{out_dir}/**/*.ttl", recursive=True):
         print(f"failed to convert {x} due to {e}")
         continue
 
+make_types()
 print("Done")
