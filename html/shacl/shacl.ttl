@@ -300,6 +300,13 @@ pfpsh:crm_PC144_joined_with a sh:NodeShape ;
 pfpsh:crm_E52_Time-Span a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:targetClass crm:E52_Time-Span ;
+        sh:property [
+            sh:path rdfs:label ;
+            sh:nodeKind sh:Literal ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:message "When using a literal time description, exactly one rdfs:label is required." ;
+        ] ;
     sh:xone (
         [
             sh:property [
@@ -312,41 +319,56 @@ pfpsh:crm_E52_Time-Span a sh:NodeShape ;
                 sh:minCount 1 ;
                 sh:maxCount 1 ;
                 sh:message "If using P82_at_some_time_within, exactly one date value (either year or full date) is required." ;
+            ] ;
+            sh:not [
+                sh:or (
+                    [
+                        sh:path crm:P82a_begin_of_the_begin ;
+                        sh:minCount 1 ;
+                    ]
+                    [
+                        sh:path crm:P82b_end_of_the_end ;
+                        sh:minCount 1 ;
+                    ]
+                )
             ]
         ]
         [
-            sh:property [
-                sh:path crm:P82a_begin_of_the_begin ;
-                sh:or (
-                    [ sh:datatype xsd:gYear ]
-                    [ sh:datatype xsd:date ]
-                    [ sh:datatype xsd:gYearMonth ]
-                ) ;
-                sh:minCount 1 ;
-                sh:maxCount 1 ;
-                sh:message "When using begin/end properties, P82a_begin_of_the_begin must have exactly one date value." ;
-            ] ;
-            sh:property [
-                sh:path crm:P82b_end_of_the_end ;
-                sh:or (
-                    [ sh:datatype xsd:gYear ]
-                    [ sh:datatype xsd:date ]
-                    [ sh:datatype xsd:gYearMonth ]
-                ) ;
-                sh:minCount 1 ;
-                sh:maxCount 1 ;
-                sh:message "When using begin/end properties, P82b_end_of_the_end must have exactly one date value." ;
-            ]
+            sh:and (
+                [
+                    sh:property [
+                        sh:path crm:P82a_begin_of_the_begin ;
+                        sh:or (
+                            [ sh:datatype xsd:gYear ]
+                            [ sh:datatype xsd:date ]
+                            [ sh:datatype xsd:gYearMonth ]
+                        ) ;
+                        sh:minCount 1 ;
+                        sh:maxCount 1 ;
+                        sh:message "When using begin/end properties, P82a_begin_of_the_begin must have exactly one date value." ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path crm:P82b_end_of_the_end ;
+                        sh:or (
+                            [ sh:datatype xsd:gYear ]
+                            [ sh:datatype xsd:date ]
+                            [ sh:datatype xsd:gYearMonth ]
+                        ) ;
+                        sh:minCount 1 ;
+                        sh:maxCount 1 ;
+                        sh:message "When using begin/end properties, P82b_end_of_the_end must have exactly one date value." ;
+                    ]
+                ]
+                [
+                    sh:not [
+                        sh:path crm:P82_at_some_time_within ;
+                        sh:minCount 1 ;
+                    ]
+                ]
+            )
         ]
-    [
-        sh:property [
-            sh:path rdfs:label ;
-            sh:nodeKind sh:Literal ;
-            sh:minCount 1 ;
-            sh:maxCount 1 ;
-            sh:message "When using a literal time description, exactly one rdfs:label is required." ;
-        ]
-    ]
     ) .
 
 pfpsh:crm_E86_Leaving a sh:NodeShape ;
