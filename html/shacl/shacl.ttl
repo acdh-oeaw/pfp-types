@@ -152,10 +152,29 @@ pfpsh:crm_E67_Birth a sh:NodeShape ;
     sh:property [
         sh:path crm:P4_has_time-span ;
         sh:class crm:E52_Time-Span ;
-        sh:minCount 1 ;
+        
         sh:maxCount 1 ;
-        sh:message "Every Birth event must have exactly one time-span." ;
-    ] .
+        ] ;
+    sh:property [
+	sh:path crm:P7_took_place_at ;
+	sh:class crm:E53_Place ;
+	sh:maxCount 1 ;
+	] ;
+    sh:or (
+        [
+          sh:property [
+             sh:path crm:P4_has_time-span ;
+             sh:minCount 1 ;
+                ]
+            ]
+            [
+         sh:property [
+            sh:path crm:P7_took_place_at ;
+            sh:minCount 1 ;
+                ]
+            ]
+        ) ;
+        sh:message "Every Birth event must have either a time-span, a place of birth, or both." .
 
 pfpsh:crm_E69_Death a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
@@ -175,10 +194,29 @@ pfpsh:crm_E69_Death a sh:NodeShape ;
     sh:property [
         sh:path crm:P4_has_time-span ;
         sh:class crm:E52_Time-Span ;
-        sh:minCount 1 ;
+        
         sh:maxCount 1 ;
-        sh:message "Every Death event must have exactly one time-span." ;
-    ] .
+        ] ;
+        sh:property [
+            sh:path crm:P7_took_place_at ;
+            sh:class crm:E53_Place ;
+            sh:maxCount 1 ;
+        ] ;
+        sh:or (
+            [
+                sh:property [
+                    sh:path crm:P4_has_time-span ;
+                    sh:minCount 1 ;
+                ]
+            ]
+            [
+                sh:property [
+                    sh:path crm:P7_took_place_at ;
+                    sh:minCount 1 ;
+                ]
+            ]
+        ) ;
+        sh:message "Every Death event must have either a time-span, a place of death, or both." .
 
 pfpsh:crm_E85_Joining a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
