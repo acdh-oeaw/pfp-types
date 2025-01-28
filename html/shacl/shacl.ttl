@@ -338,6 +338,15 @@ pfpsh:crm_E52_Time-Span a sh:NodeShape ;
                 sh:message "When using begin/end properties, P82b_end_of_the_end must have exactly one date value." ;
             ]
         ]
+    [
+        sh:property [
+            sh:path rdfs:label ;
+            sh:nodeKind sh:Literal ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:message "When using a literal time description, exactly one rdfs:label is required." ;
+        ]
+    ]
     ) .
 
 pfpsh:crm_E86_Leaving a sh:NodeShape ;
