@@ -1,7 +1,6 @@
 #SPDX-FileCopyrightText: 2024 Birger Schacht
 #SPDX-License-Identifier: MIT
 name: Deploy to ACDH-CH infra
-
 on:
   push:
     branches:
@@ -11,6 +10,9 @@ on:
         description: 'The kubctl config file with credentials to access the your kubernetes'
         required: true
   workflow_dispatch:
+  pull_request:
+    types:
+      - closed
 
 jobs:
   setup_workflow_env:
